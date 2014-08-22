@@ -2,7 +2,9 @@ package config
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
+	"strings"
 )
 
 type Configuration struct {
@@ -21,4 +23,23 @@ func (c Configuration) Save() error {
 	defer cfile.Close()
 	_, err = fmt.Fprintf(cfile, "Number=%d\nName=%s\n", c.Number, c.Name)
 	return err
+}
+
+// LoadConfig loads a text-based configuration file, and returns the
+// corresponding Configuration object.
+func LoadConfig(file string) (*Configuration, error) {
+	b, err := ioutil.ReadFile(file)
+	if err != nil {
+		return nil, err
+	}
+	lines := strings.Split(string(b), "\n")
+	// create empty Configuration object
+	conf := &Configuration{}
+	for _, line := range lines {
+		err = conf.parse(line)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return conf, nil
 }
