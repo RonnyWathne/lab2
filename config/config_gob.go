@@ -19,10 +19,10 @@ func (c Configuration) SaveGob() error {
 	return err
 }
 
-func LoadGobConfig(file string) (conf Configuration, err error) {
-	conf = Configuration{0, ""}
+func LoadGobConfig(file string) (conf *Configuration, err error) {
+	conf = &Configuration{0, ""}
 	err = nil
-	// TODO: Open the file using os.Open.
+	// TODO: Open file using os.Open()
 	// TODO: Decode using a gob decoder.
 	return
 }
