@@ -6,7 +6,6 @@ import (
 	"io"
 	"os"
 	//"strings"
-	"encoding/gob"
 )
 
 type Configuration struct {
@@ -14,6 +13,7 @@ type Configuration struct {
 	Name   string
 }
 
+// Save configuration c as a text file 'config.txt' in the current directory.
 func (c Configuration) Save() error {
 	cfile, err := os.Create("config.txt")
 	if err != nil {
@@ -26,12 +26,16 @@ func (c Configuration) Save() error {
 	return err
 }
 
+// LoadConfig loads a text-based configuration file, and returns the
+// corresponding Configuration object.
 func LoadConfig(file string) (Configuration, error) {
-	newconf := Configuration{0, ""}
-	f, err := os.Open(file) //open file in read mode
+	conf := Configuration{0, ""}
+	f, err := os.Open(file)
 	if err != nil {
-		return newconf, err //stop end return error if Open went wrong
+		// couldn't open file for reading
+		return conf, err
 	}
+	// successfully opened file; close it at the end of this function
 	defer f.Close()
 	bufferedReader := bufio.NewReader(f) //create a buffered reader wrapping file
 	var err1 error = nil
@@ -40,40 +44,21 @@ func LoadConfig(file string) (Configuration, error) {
 		line, err = bufferedReader.ReadString('\n') // read until next \n.
 		// Returns error (io.EOF), when end of file is reached.
 		if line != "" {
-			err1 = parseline(line, &newconf)
+			err1 = parseline(line, &conf)
 		}
 	}
 	if err != io.EOF { //something went wrong when reading
-		return newconf, err
+		return conf, err
 	}
-	return newconf, err1
+	return conf, err1
 }
 
-func parseline(line string, newconf *Configuration) (err error) {
+func parseline(line string, conf *Configuration) (err error) {
 	err = nil
 	//parse the lines into the Configuration.
 	//You can e.g. use: strings.HasPrefix(line, "somestring)
 	//To switch bewtween name and number and
-	// fmt.Sscanf(line, "format", &newconf.Myfield)
+	// fmt.Sscanf(line, "format", &conf.Myfield)
 	// to parse the string.
-	return
-}
-
-func (C Configuration) MkGobConf() error {
-	cfile, err := os.Create("config.gob")
-	if err != nil {
-		return err //stop end return error of Create went wrong
-	}
-	defer cfile.Close()              //close the file at the end of this function
-	encoder := gob.NewEncoder(cfile) //create a gob encoder
-	err = encoder.Encode(C)
-	return err
-}
-
-func GetGobConf(file string) (conf Configuration, err error) {
-	conf = Configuration{0, ""}
-	err = nil
-	//Open the file using os.Open.
-	//Decode using a gob Decoder.
 	return
 }

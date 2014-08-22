@@ -8,17 +8,14 @@ import (
 )
 
 func main() {
-	newconfig := config.Configuration{1, "hello"}
-	err := newconfig.Save()
-	errcheck(err)
-	err = newconfig.MkGobConf()
-	errcheck(err)
-	fmt.Println("looking good", newconfig)
-}
-
-func errcheck(err error) {
-	if err != nil {
+	cfg := config.Configuration{1, "hello"}
+	if err := cfg.Save(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	if err := cfg.SaveGob(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	fmt.Println("looking good", cfg)
 }
