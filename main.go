@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"config"
 	"os"
+
+	"github.com/uis-dat320-fall2014/lab2/config"
 )
 
 func main() {
 	newconfig := config.Configuration{1, "hello"}
-	err := newconfig.MkConfFile()
+	err := newconfig.Save()
 	errcheck(err)
 	err = newconfig.MkGobConf()
 	errcheck(err)

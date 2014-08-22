@@ -28,12 +28,12 @@ func (c Configuration) Save() error {
 
 func LoadConfig(file string) (Configuration, error) {
 	newconf := Configuration{0, ""}
-	file, err := os.Open(file) //open file in read mode
+	f, err := os.Open(file) //open file in read mode
 	if err != nil {
 		return newconf, err //stop end return error if Open went wrong
 	}
-	defer file.Close()
-	bufferedReader := bufio.NewReader(file) //create a buffered reader wrapping file
+	defer f.Close()
+	bufferedReader := bufio.NewReader(f) //create a buffered reader wrapping file
 	var err1 error = nil
 	for err == nil && err1 == nil { //This for-loop will break when an error occures
 		var line string
