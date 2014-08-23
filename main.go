@@ -11,14 +11,18 @@ import (
 )
 
 func main() {
-	cfg := config.Configuration{1, "hello"}
-	if err := cfg.Save(); err != nil {
+	cfg1 := config.Configuration{1, "hello"}
+	if err := cfg1.Save(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	if err := cfg.SaveGob(); err != nil {
+	cfg2 := config.Configuration{2, "lab"}
+	if err := cfg2.SaveGob(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	fmt.Println("looking good", cfg)
+	fmt.Println(cfg1)
+	fmt.Println(cfg2)
+
+	// TODO: Load Configuration objects back from disk
 }

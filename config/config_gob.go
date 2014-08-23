@@ -18,11 +18,3 @@ func (c Configuration) SaveGob() error {
 	err = encoder.Encode(c)
 	return err
 }
-
-func LoadGobConfig(file string) (conf *Configuration, err error) {
-	conf = &Configuration{0, ""}
-	err = nil
-	// TODO: Open file using os.Open()
-	// TODO: Decode using a gob decoder.
-	return
-}
