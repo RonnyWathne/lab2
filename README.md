@@ -22,10 +22,11 @@ for lab 2.
     important because it means that you don't need to change the import path in
     the source files to use your own forked repository's path. That is, when
     you make a pull request to submit your handin, you don't have to change
-    this back to the original import path.
+    this back to the original import path. For details, see the Import path
+	issues of forked repository section below.
 4. Next, run the following command: 
 		`git remote add lab2 https://github.com/username/lab2.git`
-	where `username` should be replaced with your usersname.
+	where `username` should be replaced with your own github username.
 5. This command adds your own `lab2` fork as a remote, which means that once you've modified some files and committed the changes you can now run:
 		`git push lab2`
 	to have them pushed up to your lab2 fork on github.
@@ -38,4 +39,20 @@ for lab 2.
 5. In the title field, write only the following: `username labX submission`, where you replace `username` with your github username and `X` with the lab number. If there are any issue you want us to pay attention to, please use the comment field. Otherwise, leave it blank.
 6. Finally, click the green *Create pull request* button.
 7. Now, we will be able to review your answers.
+
+###Import path issues of forked repository
+
+(you can ignore this section, and just follow the instructions above, but those interested in the technical understanding of what's going on here will want to read it.)
+
+If you fork a repository with Go code that has import paths that reference specific user accounts on github.com or other similar online services, you have two options to handle this depending on your intent. The approach that we take above is one approach, which allows you to continue to use the original source file's import paths, such as:
+
+	import "github.com/uis-dat320-fall2014/lab2/config"
+
+This is useful if your intent is fix a bug or otherwise contribute code to the original project's code, e.g. through a pull request.
+
+On the other hand, if your intent is to start your own forked version of a project, you will want to fix all the import paths in the project to something like:
+
+	import "github.com/username/lab2/config"
+
+This can be fixed with easily accessible tools. However, since we expect you to submit your code back to us for review, you must follow the approach described above.
 
