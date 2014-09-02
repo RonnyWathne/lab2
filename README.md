@@ -1,3 +1,5 @@
+#IMPORTANT: Do not fork me yet!! Only read the pdf file for now.
+
 ##Lab 2 instructions
 
 *Please consult the general workflow and handin instructions below; they are
