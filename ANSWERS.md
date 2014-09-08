@@ -21,11 +21,11 @@ indented with four spaces, as done in the code below:
 
 ###Exercise 23
 
-**Answer:** *YOUR ANSWER HERE*
+**Answer:** *run result: 9 20*
 
 ###Exercise 35
 
-**Answer:** *YOUR ANSWER HERE*
+**Answer:** *run result: [] 0 0 nil!*
 
 ###Exercise 40
 
