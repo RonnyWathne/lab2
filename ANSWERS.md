@@ -21,15 +21,7 @@ indented with four spaces, as done in the code below:
 
 ###Exercise 23
 
-**Answer:** *	    
-
-          func Sqrt(x float64) float64 { 
-           y := float64(2) 
-           for i:= float64(1); i < 11 ;i++ { 
-               y = y - ((math.Pow(y,2) - x)/(2*y)) 
-           } 
-           return y 
-     }*
+**Answer:** *YOUR ANSWER HERE*
 
 ###Exercise 35
 
@@ -51,13 +43,13 @@ indented with four spaces, as done in the code below:
 ##Go Language Questions
 
 1. Write a loop that repeats exactly n times.
-  - **Answer:** *YOUR ANSWER HERE*
+  - **Answer:** *for i:=0 ; i<n ; i++{ }*
 1. What is the value of ok in the following example:
-  - **Answer:** *YOUR ANSWER HERE*
+  - **Answer:** *the value is String*
 1. Object-oriented programming: How can you define a “class” Message with two attributes Sender and Content in Go?
-  - **Answer:** *YOUR ANSWER HERE*
+  - **Answer:** *type Message struct { sender string content string}*
 1. How can a method CheckForError be defined on the above Message “class”, that returns an error? (The function body can be empty.)
-  - **Answer:** *YOUR ANSWER HERE*
+  - **Answer:** *func (e CheckForError) Error() { }*
 
 
 ##Go Exercises
