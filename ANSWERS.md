@@ -21,7 +21,14 @@ indented with four spaces, as done in the code below:
 
 ###Exercise 23
 
-**Answer:** *YOUR ANSWER HERE*
+**Answer:** *
+    func Sqrt(x float64) float64 { 
+        y := float64(2) 
+        for i:= float64(1); i < 11 ;i++ { 
+            y = y - ((math.Pow(y,2) - x)/(2*y)) 
+        } 
+        return y 
+    }*
 
 ###Exercise 35
 
