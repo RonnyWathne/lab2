@@ -202,13 +202,19 @@ Exercise 63
       io.Copy(os.Stdout, &r)
     }
 *
-Go Language Questions
 
-Write a loop that repeats exactly n times. (Please inline your code below, as long as it is just a few line code snippet).
-Answer: i:=0 ; i<n ; i++{ }
-What is the value of ok in the following example:
-Answer: the value is String
-Object-oriented programming: How can you define a “class” Message with two attributes Sender and Content in Go?
-Answer: type Message struct { sender string content string}
-How can a method CheckForError be defined on the above Message “class”, that returns an error? (The function body can be empty.)
-Answer: func (e CheckForError) Error() { }
+##Go Language Questions
+
+1. Write a loop that repeats exactly n times. (Please inline your code below, as long as it is just a few line code snippet).
+  - **Answer:** `i:=0 ; i<n ; i++{ }`
+1. What is the value of ok in the following example:
+  - **Answer:** *the value is String*
+1. Object-oriented programming: How can you define a “class” Message with two attributes Sender and Content in Go?
+  - **Answer:** *type Message struct { sender string content string}*
+1. How can a method CheckForError be defined on the above Message “class”, that returns an error? (The function body can be empty.)
+  - **Answer:** *func (e CheckForError) Error() { }*
+
+
+##Go Exercises
+
+Submit completed Go exercise source files as part of a Pull request.
